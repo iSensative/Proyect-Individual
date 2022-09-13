@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.containerVideoGames{
+  display: inline-grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 6px;
+  right: 70%px;
+  color: rgb(255, 255, 255);
+}
+
+.container{
+ display: flex;
+ flex-direction: column; 
+ width: 100%;
+ height: 100vh;
+ justify-content: space-between;
+ right: 50%;
+}
+
+.container{
+background-image: url('../../assets/Screenshot_12.png');
+background-position: center;
+background-size: cover;
+background-repeat:no-repeat ;
+max-width: 100%;
+}
+
+.title{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
