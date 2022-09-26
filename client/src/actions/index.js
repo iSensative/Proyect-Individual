@@ -67,7 +67,12 @@ export function getDetails(id) {
     let info = await axios.get(
       `https://api.rawg.io/api/games/${id}?key=d1fea955266042f388dae6d06cb6ac60`
     );
-    return dispatch({
+    if(!id){
+     return dispatch({
+     type:'GET_DETAILS',
+     payload:[] 
+     }) 
+    } return dispatch({
       type: "GET_DETAILS",
       payload: info.data,
     });

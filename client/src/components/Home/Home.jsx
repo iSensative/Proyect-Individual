@@ -1,11 +1,12 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import getDetails, {
+import{
   filterAlf,
   filterbyGenre,
   getFilter,
   gettingAllGames,
+  getDetails,
   filterbyDataBase,
 } from "../../actions";
 import Card from "../Card/Card";
@@ -20,6 +21,7 @@ export default function Home() {
   useEffect(() => {
     dispatch(gettingAllGames());
     dispatch(getFilter());
+    dispatch(getDetails())
   }, [dispatch]);
 
   function handleAlf(e) {
@@ -37,7 +39,7 @@ export default function Home() {
     setPayload(e.target.value);
   }
 
-const {id}=useParams()
+
 
 
 
@@ -53,7 +55,8 @@ const {id}=useParams()
   
 
 
-//console.log(allVideoGamesHook)
+const videogamefiltrado=allVideoGamesHook.filter(game=>game.createdInDb)
+//console.log(videogamefiltrado)
   return (
     <div className={styles.container}>
       <div>
@@ -76,6 +79,11 @@ const {id}=useParams()
           <option value="Platformer">Platformer</option>
           <option value="Massively Multiplayer">Massively Multiplayer</option>
         </select>
+        <div>
+          <Link to='/createvideogame'>
+        <button>Crear VideoJuego</button>
+        </Link>
+        </div>
     <div>
       <SearchBar />
     </div>

@@ -88,19 +88,55 @@ module.exports = {
 
   rutaGamesId: async (req, res) => {
     const id = req.params.id;
-    const apiFull = await getAllVideoGames();
-    try {
-      if (id) {
-        const filterid = await apiFull.filter(
-          (videogame) => videogame?.id == id
-        );
-        filterid.length
-          ? res.status(200).send(filterid[0])
-          : res.status(400).send("No se encontro un VideoGame con ese ID");
-      }
-    } catch (error) {
-      console.log(error);
+    const totalGames=await getAllVideoGames()
+    filtergame=totalGames.filter(game=>game.createdInDb)
+    if(filtergame.length>0){
+    let game = await Videogame.findOne({
+     where:{
+     id:id 
+     },
+     include: {
+      model: Genero,
+      attributes: ["nameGen"],
+      through: {
+        attributes: [],
+      },
+    }, 
+    })
+    
+    res.send(game)  
+    }else{
+  await axios.get(`https://api.rawg.io/api/games/${id}?key=d1fea955266042f388dae6d06cb6ac60`)
+.then(response=>{
+ let gameApi=response.data
+ res.send(gameApi) 
+})
     }
+//     const idDataBase = async(id)=>{
+// return await Videogame.findByPk({
+//  where:{
+//  id:id 
+//  } 
+// })
+//     }
+//     try {
+//       if (id) {
+//         // // const filterid = await apiFull.filter((videogame) => videogame?.id == id);
+//         // apiFull2.length
+//         //   ? res.status(200).send(apiFull2)
+//         //   : res.status(400).send("No se encontro un VideoGame con ese ID");
+//         await axios.get(`https://api.rawg.io/api/games/${id}?key=d1fea955266042f388dae6d06cb6ac60`)
+//         .then(response=>{
+//         let game=response.data  
+//         game.length
+//         ?res.send(game)
+//         :res.send(idDataBase(id))
+//         })
+      
+//       }
+//     } catch (error) {
+//       console.log(error);
+//     }
   },
 
   genresDB: async (req, res) => {
@@ -139,12 +175,12 @@ console.log(error)
 
 
 postGame:async (req,res)=>{
-const{name,image,description,platforms,nameGen,rating,lanzamiento,createdInDb}=req.body
+const{name,image,description,plataforms,nameGen,rating,lanzamiento,createdInDb}=req.body
 let createGame=await Videogame.create({
 name:name,
 image:image,
 description:description,
-platforms:[platforms],
+plataforms:plataforms,
 rating:rating,
 lanzamiento:lanzamiento,
 createdInDb:true
