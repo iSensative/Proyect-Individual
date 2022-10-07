@@ -28,6 +28,7 @@ export default function Details(props) {
 
 {
 gamedetail?
+
 <div className={styles.card}>
 <img src={gamedetail.background_image?gamedetail.background_image:videogamefiltrado[0]?.image} alt="" width='245px'height='230px'className={styles.imagen}/>
 <h4 className={styles.name}>{gamedetail?.name?gamedetail.name:videogamefiltrado[0]?.name}</h4>
@@ -37,6 +38,16 @@ gamedetail?
 <p className={styles.rating}>Rating: {gamedetail?.rating?gamedetail.rating:videogamefiltrado[0]?.rating}</p>
 <p className={styles.lanzamiento}>Lanzamiento: {gamedetail?.released?gamedetail.released:videogamefiltrado[0]?.lanzamiento}</p>
 <p>Plataformas : {gamedetail.parent_platforms?.map(plataforma=>plataforma.platform?.name + ' ')?gamedetail.parent_platforms?.map(plataforma=>plataforma.platform?.name + ' '):videogamefiltrado[0]?.plataforms}</p>
+<div className={styles.botonvolver}>
+<Link to='/home'>
+<button className={styles.volver}>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span> Volver
+</button>
+</Link>
+</div>
 </div>   
 </div>
 :<p className={styles.imagen}>a</p>

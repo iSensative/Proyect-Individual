@@ -36,9 +36,11 @@
 
 
 .divmayor{
-background-image: url('../../assets/Screenshot_27.png');
-background-repeat: no-repeat;
-width: 100%;
+background-image: url('../../assets/2022-10-07_15-10-22_AdobeExpress.gif');
+background-position: center;
+background-size: cover;
+background-repeat:no-repeat ;
+max-width: 100%;
 height: 100vh;
 }
 .card {
