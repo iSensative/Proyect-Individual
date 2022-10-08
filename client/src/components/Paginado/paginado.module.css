@@ -1,14 +1,55 @@
 
 .nextPage{
- height: 20px;
- width: 50px;
+ height: 10px;
+ width: 70px;
 }
 
-previousPage{
+.previousPage{
     height: 20px;
-    width: 35px;
+    width: 70px;
 }
+   
 
+
+.previousPage{
+    color: #ffffff;
+    padding: 0.7em 1.7em;
+    border-radius: 0.5em;
+    background: rgb(0, 0, 0);
+    border: 1px solid #e8e8e8;
+    transition: all .3s;
+    box-shadow: 6px 6px 12px #c5c5c5,
+                -6px -6px 12px #ffffff;
+                padding: 16px;
+                height: 10px;
+   }
+   
+   .previousPage:hover {
+    border: 1px solid white;
+   }
+   
+.previousPage:active {
+    box-shadow: 4px 4px 12px #c5c5c5,
+                -4px -4px 12px #ffffff;
+   }
+
+
+   .nextPage{
+    color: #faf9f9;
+    padding: 0.7em 1.7em;
+    border-radius: 0.5em;
+    background: #000000;
+    border: 1px solid #e8e8e8;
+    transition: all .3s;
+
+                padding: 16px;
+   }
+   
+   .nextPage:hover {
+    border: 1px solid white;
+   }
+   
+   
 
 
 
