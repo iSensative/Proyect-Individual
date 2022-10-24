@@ -28,7 +28,6 @@ function test(e){
 }
 
 function ControllerInputs(infoInput){
- var erroresVariable={}
         if(!infoInput.name.toString().trim())return 'Por favor llenar el input Name para seguir.'
         if(infoInput.name.toString().trim().length<3)return 'Coloque un Nombre que supere los 3 digitos.'
         if(infoInput.name.toString().trim()=='  ')return 'No se permiten espacios.'

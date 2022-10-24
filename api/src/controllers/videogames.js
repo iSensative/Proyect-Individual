@@ -72,9 +72,7 @@ module.exports = {
     try {
       const infoApi = await getAllVideoGames();
       if (name) {
-        const filterQueryName = await infoApi.filter((videogame) =>
-          videogame?.name.toLowerCase().includes(name.toLowerCase())
-        );
+        const filterQueryName = await infoApi.filter((videogame) =>videogame?.name.toLowerCase().includes(name.toLowerCase()));
         filterQueryName.length
           ? res.status(200).send(filterQueryName[0])
           : res.status(404).send("No se encontro tu VideoJuego");

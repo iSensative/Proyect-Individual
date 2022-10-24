@@ -8,6 +8,7 @@ import styles from './searchbar.module.css'
 export default function SearchBar(){
 const dispatch=useDispatch()
 const[inputName,setInputName]=useState('')
+
 function handleInputName(e){
 e.preventDefault()
 setInputName(e.target.value.trim())    

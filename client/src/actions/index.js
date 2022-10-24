@@ -2,7 +2,7 @@ import axios from "axios";
 
 export function gettingAllGames() {
   return async function (dispatch) {
-    let json = axios.get("http://localhost:3001/videogames");
+    let json = axios.get("/videogames");
     return dispatch({
       type: "GET_GAMES",
       payload: (await json).data,
@@ -44,7 +44,7 @@ export function filterbyDataBase(payload) {
 export function inputSearchGame(payload) {
   return async function (dispatch) {
     let json = await axios.get(
-      `http://localhost:3001/videogames?name=${payload}`
+      `/videogames?name=${payload}`
     );
     return dispatch({
       type: "GET_NAME_INPUT",
@@ -55,7 +55,7 @@ export function inputSearchGame(payload) {
 
 export function getGenres() {
   return async function (dispatch) {
-    let infoGenres = await axios.get("http://localhost:3001/genres");
+    let infoGenres = await axios.get("ht/genres");
     return dispatch({
       type: "GET_GENRES",
       payload: infoGenres.data,
@@ -64,9 +64,7 @@ export function getGenres() {
 }
 export function getDetails(id) {
   return async function (dispatch) {
-    let info = await axios.get(
-      `https://api.rawg.io/api/games/${id}?key=d1fea955266042f388dae6d06cb6ac60`
-    );
+    let info = await axios.get(`https://api.rawg.io/api/games/${id}?key=d1fea955266042f388dae6d06cb6ac60`);
     if(!id){
      return dispatch({
      type:'GET_DETAILS',

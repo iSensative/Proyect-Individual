@@ -25,8 +25,8 @@ function rootReducer(state = initialState, { type, payload }) {
       }
       if (payload == "Desc") {
         filtrados = state.videogamesFilter.sort((a, b) => {
-          if (a.name.toLowerCase() > b.name.toLowerCase()) return -1; //Si a es mayor a b retorna 1
-          if (a.name.toLowerCase() < b.name.toLowerCase()) return 1; //Si a es menor a b return -1
+          if (a.name.toLowerCase() > b.name.toLowerCase()) return -1; //Si a es mayor a b retorna -1
+          if (a.name.toLowerCase() < b.name.toLowerCase()) return 1; //Si a es menor a b return 1
           return 0;
         });
       }
